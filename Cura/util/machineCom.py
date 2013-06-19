@@ -303,7 +303,7 @@ class MachineCom(object):
 			self._changeState(self.STATE_OPEN_SERIAL)
 			try:
 				self._log("Connecting to: %s" % (self._port))
-				if self._baudrate == 0:
+				if self._baudrate == 0 or self._baudrate == 115200:
 					self._serial = serial.Serial(str(self._port), 115200, timeout=0.1, writeTimeout=10000)
 				else:
 					self._serial = serial.Serial(str(self._port), self._baudrate, timeout=2, writeTimeout=10000)
